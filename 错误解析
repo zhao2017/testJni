@@ -1,0 +1,16 @@
+ java.lang.UnsatisfiedLinkError: dalvik.system.PathClassLoader[DexPathList[[zip file "/data/app/test.com.zh.myapplication-ryJ1llIkUqfxpZOmiJ-t9A
+
+ ==/base.apk"],nativeLibraryDirectories=[/data/app/test.com.zh.myapplication-ryJ1llIkUqfxpZOmiJ-t9A==/lib/arm64,
+
+  /system/lib64, /system/vendor/lib64]]] couldn't find "libHello.so"
+
+ 1： app libs下面手动copy libs下面此时有 .so文件但是仍然报找不到  Gradle里面未配置这个加上：
+
+  sourceSets {
+         main {
+             // gradle会到资源文件夹下libs里面找so文件
+             jniLibs.srcDirs = ['libs']
+         }
+     }
+
+ 2.做实验当把  libs下面的 .so删除掉。
